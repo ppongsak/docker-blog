@@ -1,0 +1,17 @@
+blog-api:
+  container_name: blog-api
+  image: centos-phpfpm-nginx-laravel:2.0
+  # extra_hosts:
+  #   - "db.local:10.41.58.139"
+  #   - "dbstaging:10.41.58.251"
+  #   - "dbcluster.local:10.41.58.230"
+  ports:
+    - "12001:80"
+  restart: always
+  volumes:
+    - "../blog:/var/www/html"
+  working_dir: /var/www/html
+  environment:
+    - "TZ=Asia/Bangkok"
+  cap_add:
+    - SYS_PTRACE
